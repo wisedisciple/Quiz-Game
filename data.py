@@ -1,36 +1,115 @@
-question_data = [
-    {"type": "boolean",
-     "difficulty": "easy",
-     "category": "Entertainment: Music",
-     "question": "A Saxophone is a brass instrument.",
-     "correct_answer": "False",
-     "incorrect_answers": ["True"]
-     },
-    {"type": "boolean", "difficulty": "easy", "category": "Entertainment: Music",
-     "question": "Stevie Wonder's real name is Stevland Hardaway Morris.", "correct_answer": "True",
-     "incorrect_answers": ["False"]},
-    {"type": "boolean", "difficulty": "easy", "category": "Entertainment: Music",
-     "question": "John Williams composed the music for 'Star Wars'.",
-     "correct_answer": "True", "incorrect_answers": ["False"]},
-    {"type": "boolean", "difficulty": "easy", "category": "Entertainment: Music",
-     "question": "The 2011 movie 'The Adventures of Tin tin' was directed by Steven Spielberg.",
-     "correct_answer": "True", "incorrect_answers": ["False"]},
-    {"type": "boolean", "difficulty": "easy", "category": "Entertainment: Music",
-     "question": "The music group Daft Punk got their name from a negative review they received.",
-     "correct_answer": "True", "incorrect_answers": ["False"]},
-    {"type": "boolean", "difficulty": "easy", "category": "Entertainment: Music",
-     "question": "The music video to The Buggle's 'Video Killed the Radio Star' was the first music video to broadcast on MTV.",
-     "correct_answer": "True", "incorrect_answers": ["False"]},
-    {"type": "boolean", "difficulty": "easy", "category": "Entertainment: Music",
-     "question": "Michael Jackson wrote The Simpsons song 'Do the Bartman'.", "correct_answer": "False",
-     "incorrect_answers": ["True"]},
-    {"type": "boolean", "difficulty": "easy", "category": "Entertainment: Music",
-     "question": "Korean girl group, TWICE, consists of 9 members",
-     "correct_answer": "True", "incorrect_answers": ["False"]},
-    {"type": "boolean", "difficulty": "easy", "category": "Entertainment: Music",
-     "question": "Lead Singer Rivers Cuomo of American rock band Weezer attended Harvard.",
-     "correct_answer": "True",
-     "incorrect_answers": ["False"]},
-    {"type": "boolean", "difficulty": "easy", "category": "Entertainment: Music",
-     "question": "The song 'Stronger Than You' is a single by Estelle, who played Garnet in Steven Universe.",
-     "correct_answer": "True", "incorrect_answers": ["False"]}]
+import requests
+
+parameters = {
+    "amount": 10,
+    "type": "boolean",
+    "category": 15,
+}
+
+response = requests.get(url="https://opentdb.com/api.php", params=parameters)
+response.raise_for_status()
+data = response.json()
+question_data = data["results"]
+
+# question_data = [
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "medium",
+#         "question": "The HTML5 standard was published in 2014.",
+#         "correct_answer": "True",
+#         "incorrect_answers": [
+#             "False"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "medium",
+#         "question": "The first computer bug was formed by faulty wires.",
+#         "correct_answer": "False",
+#         "incorrect_answers": [
+#             "True"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "medium",
+#         "question": "FLAC stands for 'Free Lossless Audio Condenser'.",
+#         "correct_answer": "False",
+#         "incorrect_answers": [
+#             "True"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "medium",
+#         "question": "All program codes have to be compiled into an executable file in order to be run. This file can then be executed on any machine.",
+#         "correct_answer": "False",
+#         "incorrect_answers": [
+#             "True"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "easy",
+#         "question": "Linus Torvalds created Linux and Git.",
+#         "correct_answer": "True",
+#         "incorrect_answers": [
+#             "False"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "easy",
+#         "question": "The programming language 'Python' is based off a modified version of 'JavaScript'",
+#         "correct_answer": "False",
+#         "incorrect_answers": [
+#             "True"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "medium",
+#         "question": "AMD created the first consumer 64-bit processor.",
+#         "correct_answer": "True",
+#         "incorrect_answers": [
+#             "False"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "easy",
+#         "question": "'HTML' stands for Hypertext Markup Language.",
+#         "correct_answer": "True",
+#         "incorrect_answers": [
+#             "False"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "easy",
+#         "question": "In most programming languages, the operator ++ is equivalent to the statement '+= 1'.",
+#         "correct_answer": "True",
+#         "incorrect_answers": [
+#             "False"
+#         ]
+#     },
+#     {
+#         "category": "Science: Computers",
+#         "type": "boolean",
+#         "difficulty": "hard",
+#         "question": "The IBM PC used an Intel 8008 microprocessor clocked at 4.77 MHz and 8 kilobytes of memory.",
+#         "correct_answer": "False",
+#         "incorrect_answers": [
+#             "True"
+#         ]
+#     }
+# ]
